@@ -71,5 +71,6 @@ alias par="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
 alias parrm="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
 
 alias gitdot="/usr/bin/git --git-dir=$HOME/Gits/dotfiles --work-tree=$HOME"
+alias suckless="/usr/bin/git --git-dir=$HOME/.config/suckless/.git --work-tree=$HOME/.config/suckless"
 
 neofetch
