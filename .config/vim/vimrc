@@ -1,0 +1,92 @@
+set runtimepath^=$XDG_CONFIG_HOME/vim
+set runtimepath+=$XDG_DATA_HOME/vim
+set runtimepath+=$XDG_CONFIG_HOME/vim/after
+
+set packpath^=$XDG_DATA_HOME/vim,$XDG_CONFIG_HOME/vim
+set packpath+=$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim/after
+
+let g:netrw_home = $XDG_DATA_HOME."/vim"
+call mkdir($XDG_DATA_HOME."/vim/spell", 'p')
+set viewdir=$XDG_DATA_HOME/vim/view | call mkdir(&viewdir, 'p')
+
+set backupdir=$XDG_CACHE_HOME/vim/backup | call mkdir(&backupdir, 'p')
+set directory=$XDG_CACHE_HOME/vim/swap   | call mkdir(&directory, 'p')
+set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   'p')
+
+if !has('nvim') | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif
+
+"==============================================================
+"General Settings
+"==============================================================
+syntax enable
+set path+=**
+set number relativenumber 
+set t_Co=256
+set wrap linebreak nolist
+set nobackup
+set noswapfile
+set scrolloff=8
+set showmode
+set laststatus=2
+set clipboard=unnamedplus
+set cursorline
+set timeoutlen=1000
+let skip_defaults_vim=1
+set viminfo=""
+let g:mapleader = "\<Space>"
+let g:maplocalleader = "\\"
+let g:tex_flavor = "latex"
+
+"==============================================================
+"GUI
+"==============================================================
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+
+"==============================================================
+"Text-Tab-Indent
+"==============================================================
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+
+"==============================================================
+"Search
+"==============================================================
+set ignorecase
+set smartcase
+set incsearch
+set nohlsearch
+
+"==============================================================
+"Mouse
+"==============================================================
+set mouse=nicr
+set mouse=a
+
+"==============================================================
+"Splits
+"==============================================================
+set splitbelow splitright 
+
+"==============================================================
+"Colors
+"==============================================================
+hi Normal           ctermfg=255     ctermbg=none    cterm=none      
+hi Comment          ctermfg=240     ctermbg=none    cterm=italic
+hi Constant         ctermfg=5       ctermbg=none    cterm=bold
+hi VertSplit        ctermfg=7       ctermbg=none    cterm=none
+hi ErrorMsg         ctermfg=1       ctermbg=none    cterm=none      
+hi MatchParen       ctermfg=1       ctermbg=none    cterm=underline 
+hi LineNr           ctermfg=7       ctermbg=none    cterm=none      
+hi CursorLineNr     ctermfg=3       ctermbg=235     cterm=bold      
+hi CursorLine       ctermfg=none    ctermbg=235     cterm=none      
+hi Pmenu            ctermfg=7       ctermbg=235     cterm=none  
+hi NormalFloat      ctermfg=1       ctermbg=255     cterm=none 
+"==============================================================
+
+source $XDG_CONFIG_HOME/vim/plugins.vim
+source $XDG_CONFIG_HOME/vim/mappings.vim
