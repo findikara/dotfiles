@@ -1,0 +1,3 @@
+
+# download directory
+-o $HOME/Downloads/%(channel)s\ -\ %(title)s.%(ext)s
